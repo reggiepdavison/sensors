@@ -37,22 +37,37 @@ public class SensorListContent {
     }
 
     public class SensorDetail {
-        private Sensor sensor;
-
         public final String id;
-        public final String content;
-        public final String details;
+        public final Sensor sensor;
 
         public SensorDetail(int index, Sensor sensor) {
             this.sensor = sensor;
             this.id = index + "";
-            this.content = sensor.getName();
-            this.details = sensor.getVendor();
+        }
+
+        public String getDetails() {
+            return sensor.getVendor();
+        }
+
+        public String getName() {
+            return sensor.getName();
+        }
+
+        public String getType() {
+            return sensor.getStringType();
+        }
+
+        public String getVendor() {
+            return sensor.getVendor();
+        }
+
+        public String getVersion() {
+            return "" + sensor.getVersion();
         }
 
         @Override
         public String toString() {
-            return content;
+            return sensor.toString();
         }
     }
 }
